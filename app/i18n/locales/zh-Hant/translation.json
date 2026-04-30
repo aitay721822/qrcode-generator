@@ -1,0 +1,86 @@
+{
+  "pageHeader": {
+    "title": "QRCode 產生工具",
+    "description": "產生文字、網址、Wi‑Fi、電子郵件、電話與簡訊的 QRCode"
+  },
+  "generatorCard": {
+    "title": "內容",
+    "mode": "類型",
+    "mode_text": "文字",
+    "mode_url": "網址",
+    "mode_wifi": "Wi‑Fi",
+    "mode_email": "電子郵件",
+    "mode_phone": "電話",
+    "mode_sms": "簡訊",
+    "generate": "產生 QRCode",
+    "success": "完成"
+  },
+  "qrFields": {
+    "textLabel": "文字",
+    "textPlaceholder": "每行一筆；可貼上多行一次批次產生。",
+    "urlLabel": "網址",
+    "urlPlaceholder": "example.com 或 https://…",
+    "wifiSsid": "無線網路名稱（SSID）",
+    "wifiSsidPlaceholder": "我的 WiFi",
+    "wifiSecurity": "加密方式",
+    "wifiSec_WPA2": "WPA2",
+    "wifiSec_WPA": "WPA",
+    "wifiSec_WEP": "WEP",
+    "wifiSec_nopass": "無密碼",
+    "wifiPassword": "密碼",
+    "wifiPasswordPlaceholder": "Wi‑Fi 密碼",
+    "wifiHidden": "隱藏網路",
+    "emailTo": "收件人",
+    "emailToPlaceholder": "name@example.com",
+    "emailSubject": "主旨（選填）",
+    "emailSubjectPlaceholder": "主旨",
+    "emailBody": "內文（選填）",
+    "emailBodyPlaceholder": "郵件內文",
+    "phoneNumber": "電話號碼",
+    "phonePlaceholder": "+886912345678",
+    "smsNumber": "電話號碼",
+    "smsNumberPlaceholder": "+886912345678",
+    "smsMessage": "簡訊內容（選填）",
+    "smsMessagePlaceholder": "簡訊內文"
+  },
+  "qrPreview": {
+    "title": "QR 預覽",
+    "empty": "產生後會顯示於此。",
+    "rendering": "繪製中…",
+    "copyPayload": "複製編碼內容",
+    "copied": "已複製",
+    "downloadPng": "下載 PNG"
+  },
+  "qrHistory": {
+    "title": "歷史紀錄（本機）",
+    "empty": "尚無紀錄。產生過的 QR 會出現在這裡（最多 1000 筆，超過時先刪最舊）。",
+    "clearAll": "全部清除",
+    "deleteOne": "刪除",
+    "clearConfirmTitle": "確定清除歷史？",
+    "clearConfirmBody": "將從此瀏覽器移除所有已儲存的 QR 紀錄，無法復原。",
+    "cancel": "取消",
+    "clearConfirmAction": "全部清除"
+  },
+  "pageFooter": {
+    "rfcLink": "關於 QR 碼（維基百科）"
+  },
+  "errors": {
+    "title": "錯誤",
+    "copyFailed": "複製到剪貼簿失敗，請重試。",
+    "ok": "確定",
+    "qrRenderFailed": "無法繪製 QRCode，請縮短內容或檢查格式。",
+    "qrTextEmpty": "請輸入文字。",
+    "qrTextTooLong": "文字過長，不適合產生 QRCode。",
+    "qrTextBatchTooMany": "文字批次單次最多 {{max}} 行。",
+    "qrBatchLineError": "第 {{n}} 行：{{message}}",
+    "qrUrlEmpty": "請輸入網址。",
+    "qrUrlInvalid": "網址格式不正確。",
+    "qrWifiSsidEmpty": "請輸入 Wi‑Fi 名稱（SSID）。",
+    "qrWifiPasswordRequired": "此加密方式需要密碼，或請改選「無密碼」。",
+    "qrEmailToEmpty": "請輸入電子郵件地址。",
+    "qrEmailInvalid": "請輸入有效的電子郵件地址。",
+    "qrPhoneEmpty": "請輸入電話號碼。",
+    "qrSmsNumberEmpty": "請輸入簡訊收件號碼。",
+    "qrUnknownMode": "未知的類型。"
+  }
+}

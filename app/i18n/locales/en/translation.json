@@ -1,0 +1,86 @@
+{
+  "pageHeader": {
+    "title": "QR Code Generator",
+    "description": "Create QR codes for text, URLs, Wi‑Fi, email, phone, and SMS"
+  },
+  "generatorCard": {
+    "title": "Content",
+    "mode": "Type",
+    "mode_text": "Text",
+    "mode_url": "URL",
+    "mode_wifi": "Wi‑Fi",
+    "mode_email": "Email",
+    "mode_phone": "Phone",
+    "mode_sms": "SMS",
+    "generate": "Generate QR",
+    "success": "Done"
+  },
+  "qrFields": {
+    "textLabel": "Text",
+    "textPlaceholder": "One line = one QR code. Paste or type multiple lines to batch generate.",
+    "urlLabel": "URL",
+    "urlPlaceholder": "example.com or https://…",
+    "wifiSsid": "Network name (SSID)",
+    "wifiSsidPlaceholder": "MyWiFi",
+    "wifiSecurity": "Security",
+    "wifiSec_WPA2": "WPA2",
+    "wifiSec_WPA": "WPA",
+    "wifiSec_WEP": "WEP",
+    "wifiSec_nopass": "None",
+    "wifiPassword": "Password",
+    "wifiPasswordPlaceholder": "Wi‑Fi password",
+    "wifiHidden": "Hidden network",
+    "emailTo": "To",
+    "emailToPlaceholder": "name@example.com",
+    "emailSubject": "Subject (optional)",
+    "emailSubjectPlaceholder": "Subject",
+    "emailBody": "Body (optional)",
+    "emailBodyPlaceholder": "Message body",
+    "phoneNumber": "Phone number",
+    "phonePlaceholder": "+15551234567",
+    "smsNumber": "Phone number",
+    "smsNumberPlaceholder": "+15551234567",
+    "smsMessage": "Message (optional)",
+    "smsMessagePlaceholder": "SMS body"
+  },
+  "qrPreview": {
+    "title": "QR preview",
+    "empty": "Generated QR codes will appear here.",
+    "rendering": "Rendering…",
+    "copyPayload": "Copy payload",
+    "copied": "Copied",
+    "downloadPng": "Download PNG"
+  },
+  "qrHistory": {
+    "title": "History (this device)",
+    "empty": "No items yet. Generated codes appear here (max 1000, oldest removed first).",
+    "clearAll": "Clear all",
+    "deleteOne": "Delete",
+    "clearConfirmTitle": "Clear history?",
+    "clearConfirmBody": "This removes all saved QR entries from this browser. This cannot be undone.",
+    "cancel": "Cancel",
+    "clearConfirmAction": "Clear all"
+  },
+  "pageFooter": {
+    "rfcLink": "About QR codes (Wikipedia)"
+  },
+  "errors": {
+    "title": "Error",
+    "copyFailed": "Failed to copy to clipboard. Please try again.",
+    "ok": "OK",
+    "qrRenderFailed": "Could not render QR code. Try shorter content or a different format.",
+    "qrTextEmpty": "Enter some text.",
+    "qrTextTooLong": "Text is too long for a reliable QR code.",
+    "qrTextBatchTooMany": "Text batch is limited to {{max}} lines per run.",
+    "qrBatchLineError": "Line {{n}}: {{message}}",
+    "qrUrlEmpty": "Enter a URL.",
+    "qrUrlInvalid": "That URL does not look valid.",
+    "qrWifiSsidEmpty": "Enter the Wi‑Fi network name (SSID).",
+    "qrWifiPasswordRequired": "Enter a password for this security type (or choose “None”).",
+    "qrEmailToEmpty": "Enter an email address.",
+    "qrEmailInvalid": "Enter a valid email address.",
+    "qrPhoneEmpty": "Enter a phone number.",
+    "qrSmsNumberEmpty": "Enter a phone number for SMS.",
+    "qrUnknownMode": "Unknown mode."
+  }
+}

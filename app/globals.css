@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+:root {
+  --background: hsl(240, 10%, 98%);
+  --foreground: hsl(240, 10%, 25%);
+  --card-bg: hsl(0, 0%, 100%);
+  --muted: hsl(240, 5%, 50%);
+  --card-border: #d7d7db;
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: Ubuntu Mono, monospace;
+}
+
+.dark {
+  --background: hsl(240, 10%, 4%);
+  --foreground: hsl(240, 10%, 85%);
+  --card-bg: hsl(240, 10%, 7%);
+  --card-border: hsl(240, 5%, 15%);
+  --muted: hsl(240, 5%, 60%);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  min-width: 360px;
+}
+
+.card-border {
+  border: 1px solid var(--card-border);
+}
+
+.border-card {
+  border-color: var(--card-border);
+}
