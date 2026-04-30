@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://guid-v7-generator.vercel.app
+Host: https://qrcode.apisrv.space
 
 # Sitemaps
-Sitemap: https://guid-v7-generator.vercel.app/sitemap.xml
+Sitemap: https://qrcode.apisrv.space/sitemap.xml
