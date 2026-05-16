@@ -35,6 +35,7 @@ export function proxy(req: NextRequest) {
   );
   const headers = new Headers(req.headers);
   headers.set(headerName, lngInPath || lng);
+  headers.set("X-App-Version", process.env.APP_VERSION || "1.0.0");
 
   // If the language is not in the path, redirect to include it
   if (!lngInPath && !req.nextUrl.pathname.startsWith("/_next")) {
