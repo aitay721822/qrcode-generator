@@ -1,9 +1,9 @@
+import { cn } from "@heroui/react";
 import { dir } from "i18next";
 import type { Viewport } from "next";
 import { Geist, Geist_Mono, Varela_Round } from "next/font/google";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { Providers } from "@/components/ui-provider";
-import { cn } from "@heroui/react";
 import "../globals.css";
 import { languages } from "../i18n";
 import { getT } from "../i18n/server";

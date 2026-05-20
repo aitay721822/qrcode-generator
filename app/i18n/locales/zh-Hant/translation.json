@@ -1,4 +1,9 @@
 {
+  "nav": {
+    "qr": "QR 碼",
+    "guid": "GUID 產生器",
+    "base64": "Base64 檢視器"
+  },
   "pageHeader": {
     "title": "QRCode 產生工具",
     "description": "產生文字、網址、Wi‑Fi、電子郵件、電話與簡訊的 QRCode"
@@ -61,6 +66,49 @@
     "cancel": "取消",
     "clearConfirmAction": "全部清除"
   },
+  "guidGenerator": {
+    "title": "產生 GUID",
+    "quantity": "數量",
+    "version": "UUID 版本",
+    "versionV4": "v4（隨機）",
+    "versionV7": "v7（時間排序）",
+    "generate": "產生",
+    "successfullyGenerated": "產生成功",
+    "clipboard": "剪貼簿",
+    "autoCopy": "自動複製到剪貼簿",
+    "formatTitle": "格式選項",
+    "hyphens": "連字號",
+    "braces": "大括號",
+    "uppercase": "大寫",
+    "quotes": "引號",
+    "commas": "逗號",
+    "resultsTitle": "已產生 {{count}} 個 GUID",
+    "resultsTitle_other": "已產生 {{count}} 個 GUID",
+    "copyAll": "全部複製",
+    "copied": "已複製！",
+    "copyGuid": "複製 GUID",
+    "advancedTitle": "進階選項",
+    "advancedSubtitle": "根據參考 GUID 產生 GUID，並可選時間偏移。",
+    "referenceGuidLabel": "參考 GUID v7",
+    "referenceGuidPlaceholder": "例如：018f3b89-5cba-77d4-8623-275d83730e6c",
+    "referenceGuidDescription": "根據此參考 GUID 的時間戳生成 GUID",
+    "timeOffsetLabel": "時間偏移（毫秒）",
+    "timeOffsetPlaceholder": "例如：1000 代表 +1 秒，-1000 代表 -1 秒",
+    "timeOffsetDescription": "調整參考 GUID 的時間戳（需要上方的參考 GUID）"
+  },
+  "base64Viewer": {
+    "title": "Base64 圖片檢視器",
+    "description": "一個簡單的工具，用於檢視和解碼 Base64 編碼的圖片。",
+    "inputLabel": "Base64 圖片字串",
+    "inputPlaceholder": "貼上您的 Base64 圖片字串或資料 URI...",
+    "pasteFromClipboard": "從剪貼簿貼上",
+    "clear": "清除",
+    "copiedImage": "圖片已複製到剪貼簿",
+    "copiedBase64": "Base64 值已複製到剪貼簿",
+    "copiedDataUri": "資料 URI 已複製到剪貼簿",
+    "fileFormat": "格式",
+    "fileSize": "大小"
+  },
   "pageFooter": {
     "rfcLink": "關於 QR 碼（維基百科）"
   },
@@ -81,6 +129,11 @@
     "qrEmailInvalid": "請輸入有效的電子郵件地址。",
     "qrPhoneEmpty": "請輸入電話號碼。",
     "qrSmsNumberEmpty": "請輸入簡訊收件號碼。",
-    "qrUnknownMode": "未知的類型。"
+    "qrUnknownMode": "未知的類型。",
+    "guidInvalidQuantity": "請輸入 1 到 1000 之間的有效數量",
+    "guidTimeOffsetNeedsReference": "時間偏移只能與參考 GUID 一起使用",
+    "guidInvalidTimeOffset": "請輸入有效的時間偏移（毫秒）",
+    "guidInvalidReferenceGuid": "無效的參考 GUID 格式",
+    "base64InvalidFormat": "無效的 Base64 圖片格式，請檢查您的輸入。"
   }
 }
