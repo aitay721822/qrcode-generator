@@ -39,7 +39,7 @@ function splitNonEmptyLines(raw: string): string[] {
     .filter((l) => l.length > 0);
 }
 
-export function QrPage() {
+export function QrPageContent() {
   const { t } = useT();
   const previewSectionRef = useRef<HTMLDivElement>(null);
   const [mode, setMode] = useState<QrMode>("text");

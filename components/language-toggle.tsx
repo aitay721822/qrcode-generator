@@ -2,7 +2,7 @@
 
 import { cn } from "@heroui/react";
 import { Languages } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useT } from "@/app/i18n/client";
 import { Button, Dropdown, Label, type Selection } from "@/lib/heroui";
@@ -16,6 +16,7 @@ export function LanguageToggle() {
   const [mounted, setMounted] = useState(false);
   const { i18n } = useT();
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -59,7 +60,9 @@ export function LanguageToggle() {
             if (keys === "all") return;
             const selected = [...keys][0];
             if (typeof selected === "string" && selected) {
-              router.push(`/${selected}`);
+              // Preserve the current route path when switching language
+              const rest = pathname.replace(/^\/[^/]+/, "");
+              router.push(`/${selected}${rest}`);
             }
           }}
         >

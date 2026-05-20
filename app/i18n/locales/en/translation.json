@@ -2,7 +2,9 @@
   "nav": {
     "qr": "QR Code",
     "guid": "GUID Generator",
-    "base64": "Base64 Viewer"
+    "base64": "Base64 Viewer",
+    "pasteDownload": "Paste to Download",
+    "password": "Password Generator"
   },
   "pageHeader": {
     "title": "QR Code Generator",
@@ -96,6 +98,28 @@
     "timeOffsetPlaceholder": "e.g. 1000 for +1 second, -1000 for -1 second",
     "timeOffsetDescription": "Adjust the reference GUID's timestamp (requires reference GUID above)"
   },
+  "pasteDownload": {
+    "title": "Paste to Download",
+    "description": "Copy an image to your clipboard (screenshot, photo, etc.), then paste it here — it downloads automatically.",
+    "autoDetect": "Auto-detects image from clipboard",
+    "downloaded": "Image downloaded"
+  },
+  "passwordGenerator": {
+    "title": "Password Generator",
+    "description": "Generate strong random passwords with customizable character sets.",
+    "length": "Length",
+    "includeUppercase": "A–Z (Uppercase)",
+    "includeLowercase": "a–z (Lowercase)",
+    "includeDigits": "0–9 (Digits)",
+    "includeSpecial": "Special Characters",
+    "specialCharsLabel": "Custom special characters",
+    "specialCharsPlaceholder": "Enter special characters to include",
+    "generate": "Generate",
+    "regenerate": "Regenerate",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "noCharTypeSelected": "Select at least one character type."
+  },
   "base64Viewer": {
     "title": "Base64 Image Viewer",
     "description": "A simple tool to view and decode base64 encoded images.",
@@ -107,7 +131,9 @@
     "copiedBase64": "Base64 value copied to clipboard",
     "copiedDataUri": "Data URI copied to clipboard",
     "fileFormat": "Format",
-    "fileSize": "Size"
+    "fileSize": "Size",
+    "downloadAsFile": "Download as file",
+    "downloaded": "Downloaded"
   },
   "pageFooter": {
     "rfcLink": "About QR codes (Wikipedia)"

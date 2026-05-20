@@ -2,7 +2,7 @@
   "name": "QRCode 產生工具",
   "short_name": "QRCode",
   "description": "離線 QRCode 產生工具，支援文字、網址、Wi‑Fi、電子郵件、電話與簡訊",
-  "start_url": "/en",
+  "start_url": "/en/qrcode",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",

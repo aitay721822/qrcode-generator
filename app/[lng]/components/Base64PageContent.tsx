@@ -1,8 +1,14 @@
 "use client";
 
-import { Clipboard, Copy, Image as ImageIcon, Trash2 } from "lucide-react";
+import {
+  Clipboard,
+  Copy,
+  Download,
+  Image as ImageIcon,
+  Trash2,
+} from "lucide-react";
 import NextImage from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useT } from "@/app/i18n/client";
 import {
   extractBase64,
@@ -20,7 +26,17 @@ import {
   useOverlayState,
 } from "@/lib/heroui";
 
-export function Base64Page() {
+/** Download a Blob as a file by creating a temporary <a> and clicking it. */
+function triggerDownload(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+export function Base64PageContent() {
   const { t } = useT();
   const [base64Input, setBase64Input] = useState("");
   const [errorDialog, setErrorDialog] = useState<{
@@ -39,11 +55,20 @@ export function Base64Page() {
       setErrorDialog((prev) => ({ ...prev, isOpen: open })),
   });
 
+  const toastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+
   const showToast = (message: string, type: "success" | "error") => {
+    if (toastTimer.current) clearTimeout(toastTimer.current);
     setToast({ visible: true, message, type });
-    setTimeout(() => setToast((prev) => ({ ...prev, visible: false })), 2000);
+    toastTimer.current = setTimeout(
+      () => setToast((prev) => ({ ...prev, visible: false })),
+      2000,
+    );
   };
 
+  // ── (paste-to-download lives in its own tab: PasteDownloadPage) ─
+
+  // ── Text-paste into textarea ───────────────────────────────────
   const handlePaste = async () => {
     try {
       const text = await navigator.clipboard.readText();
@@ -86,6 +111,20 @@ export function Base64Page() {
       const dataUriValue = toDataUri(base64Input);
       await navigator.clipboard.writeText(dataUriValue);
       showToast(t("base64Viewer.copiedDataUri"), "success");
+    } catch {
+      showToast(t("errors.copyFailed"), "error");
+    }
+  };
+
+  // ── Download the currently displayed image ──────────────────────
+  const handleDownload = async () => {
+    try {
+      const dataUriValue = toDataUri(base64Input);
+      const response = await fetch(dataUriValue);
+      const blob = await response.blob();
+      const ext = blob.type.split("/")[1]?.replace("jpeg", "jpg") || "png";
+      triggerDownload(blob, `image.${ext}`);
+      showToast(t("base64Viewer.downloaded"), "success");
     } catch {
       showToast(t("errors.copyFailed"), "error");
     }
@@ -206,6 +245,15 @@ export function Base64Page() {
                 >
                   <Copy size={16} />
                   {t("base64Viewer.copiedDataUri")}
+                </Button>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onPress={handleDownload}
+                  className="inline-flex items-center gap-2"
+                >
+                  <Download size={16} />
+                  {t("base64Viewer.downloadAsFile")}
                 </Button>
               </div>
             </Card.Content>

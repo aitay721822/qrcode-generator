@@ -25,7 +25,7 @@ import {
   useOverlayState,
 } from "@/lib/heroui";
 
-export function GuidPage() {
+export function GuidPageContent() {
   const { t } = useT();
   const [quantity, setQuantity] = useState<string>("1");
   const [version, setVersion] = useState<UuidVersion>("v7");
@@ -371,10 +371,7 @@ export function GuidPage() {
 
               <div className="mt-4 space-y-2">
                 {generatedGuids.map((guid, index) => (
-                  <div
-                    key={guid}
-                    className="flex items-center gap-2"
-                  >
+                  <div key={guid} className="flex items-center gap-2">
                     <code className="text-sm overflow-hidden text-ellipsis whitespace-nowrap flex-1 min-w-0 bg-default-100 hover:bg-default-200 border-2 border-default-200 rounded-medium px-3 py-2 transition-colors">
                       {guid}
                     </code>

@@ -2,7 +2,9 @@
   "nav": {
     "qr": "QR 碼",
     "guid": "GUID 產生器",
-    "base64": "Base64 檢視器"
+    "base64": "Base64 檢視器",
+    "pasteDownload": "貼上即下載",
+    "password": "密碼產生器"
   },
   "pageHeader": {
     "title": "QRCode 產生工具",
@@ -96,6 +98,28 @@
     "timeOffsetPlaceholder": "例如：1000 代表 +1 秒，-1000 代表 -1 秒",
     "timeOffsetDescription": "調整參考 GUID 的時間戳（需要上方的參考 GUID）"
   },
+  "pasteDownload": {
+    "title": "貼上即下載",
+    "description": "將圖片複製到剪貼簿（截圖、照片等），然後在此處貼上 — 會自動下載。",
+    "autoDetect": "自動偵測剪貼簿圖片",
+    "downloaded": "圖片已下載"
+  },
+  "passwordGenerator": {
+    "title": "密碼產生器",
+    "description": "隨機產生強密碼，可自訂字元組合。",
+    "length": "長度",
+    "includeUppercase": "A–Z（大寫）",
+    "includeLowercase": "a–z（小寫）",
+    "includeDigits": "0–9（數字）",
+    "includeSpecial": "特殊字元",
+    "specialCharsLabel": "自訂特殊字元",
+    "specialCharsPlaceholder": "輸入要包含的特殊字元",
+    "generate": "產生",
+    "regenerate": "重新產生",
+    "copy": "複製",
+    "copied": "已複製！",
+    "noCharTypeSelected": "請至少選擇一種字元類型。"
+  },
   "base64Viewer": {
     "title": "Base64 圖片檢視器",
     "description": "一個簡單的工具，用於檢視和解碼 Base64 編碼的圖片。",
@@ -107,7 +131,9 @@
     "copiedBase64": "Base64 值已複製到剪貼簿",
     "copiedDataUri": "資料 URI 已複製到剪貼簿",
     "fileFormat": "格式",
-    "fileSize": "大小"
+    "fileSize": "大小",
+    "downloadAsFile": "下載為檔案",
+    "downloaded": "已下載"
   },
   "pageFooter": {
     "rfcLink": "關於 QR 碼（維基百科）"

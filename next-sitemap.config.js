@@ -6,7 +6,7 @@ module.exports = {
   changefreq: "weekly",
   priority: 0.7,
   // 自訂路徑 - 手動加入所有語言版本
-  additionalPaths: async (config) => {
+  additionalPaths: async (_config) => {
     const locales = ["en", "zh-Hant"];
     const result = [];
 

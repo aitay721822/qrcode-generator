@@ -1,9 +1,24 @@
-const CACHE_NAME = "qrcode-generator-v2";
-const urlsToCache = ["/", "/en", "/zh-Hant", "/offline.html"];
+const CACHE_NAME = "qrcode-generator-v4";
+const urlsToCache = [
+  "/",
+  "/en",
+  "/zh-Hant",
+  "/en/qrcode",
+  "/zh-Hant/qrcode",
+  "/en/guid-generator",
+  "/zh-Hant/guid-generator",
+  "/en/b64viewer",
+  "/zh-Hant/b64viewer",
+  "/en/paste",
+  "/zh-Hant/paste",
+  "/en/password-generator",
+  "/zh-Hant/password-generator",
+  "/offline.html",
+];
 
 // Install event - cache resources
 self.addEventListener("install", (event) => {
-  console.log("[Service Worker] Installing new version - v2");
+  console.log("[Service Worker] Installing new version - v4");
   event.waitUntil(
     caches
       .open(CACHE_NAME)
@@ -22,7 +37,7 @@ self.addEventListener("install", (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener("activate", (event) => {
-  console.log("[Service Worker] Activating new version - v2");
+  console.log("[Service Worker] Activating new version - v4");
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
