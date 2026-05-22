@@ -46,7 +46,7 @@ npm run format   # biome format --write
 
 | 變數 | 用途 |
 |------|------|
-| `SITE_URL` | `next-sitemap` 的 `siteUrl`；未設時預設為 `https://qrcode.apisrv.space`（見 `next-sitemap.config.js`） |
+| `SITE_URL` | `next-sitemap` 的 `siteUrl`；未設時預設為 `https://util.apisrv.space`（見 `next-sitemap.config.js`） |
 
 部署到自訂網域時請設好 `SITE_URL`，避免 sitemap 內網址錯誤。
 

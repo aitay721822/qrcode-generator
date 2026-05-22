@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://qrcode.apisrv.space",
+  siteUrl: process.env.SITE_URL || "https://util.apisrv.space",
   generateRobotsTxt: true,
   sitemapSize: 7000,
   changefreq: "weekly",
