@@ -1,6 +1,9 @@
 "use client";
 
 import { useT } from "@/app/i18n/client";
+import { AmbientBackground } from "@/components/AmbientBackground";
+import { PageEntrance } from "@/components/PageEntrance";
+import { PageTransitionProvider } from "@/components/PageTransition";
 import { GuidPageContent } from "../components/GuidPageContent";
 import { PageFooter } from "../components/PageFooter";
 import { PageHeader } from "../components/PageHeader";
@@ -11,19 +14,25 @@ export default function GuidGeneratorPage() {
 
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center overflow-x-hidden">
-      <div className="flex h-full w-full max-w-3xl flex-col px-4 py-16 sm:py-24 lg:max-w-6xl">
-        <PageHeader
-          title={t("guidGenerator.title")}
-          description={`${t("guidGenerator.versionV7")} · ${t("guidGenerator.versionV4")}`}
-        />
-        <ToolNav />
+      <AmbientBackground />
 
-        <main className="mt-8 flex w-full flex-col gap-6">
-          <GuidPageContent />
-        </main>
+      <PageTransitionProvider>
+        <PageEntrance stagger={0.08} y={20}>
+          <div className="mx-auto flex h-full w-full max-w-3xl flex-col px-4 py-16 sm:py-24 lg:max-w-7xl">
+            <PageHeader
+              title={t("guidGenerator.title")}
+              description={`${t("guidGenerator.versionV7")} · ${t("guidGenerator.versionV4")}`}
+            />
+            <ToolNav />
 
-        <PageFooter />
-      </div>
+            <main className="mt-8 flex w-full flex-col gap-6">
+              <GuidPageContent />
+            </main>
+
+            <PageFooter />
+          </div>
+        </PageEntrance>
+      </PageTransitionProvider>
     </div>
   );
 }

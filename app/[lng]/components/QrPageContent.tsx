@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useT } from "@/app/i18n/client";
+import { MouseParallax } from "@/components/MouseParallax";
+import { RippleEffect } from "@/components/RippleEffect";
 import { Button, Modal, useOverlayState } from "@/lib/heroui";
 import {
   addQrHistoryRecord,
@@ -244,30 +246,40 @@ export function QrPageContent() {
     <>
       <div className="flex w-full min-w-0 flex-col gap-6 lg:flex-row lg:items-stretch lg:gap-8">
         <div className="min-w-0 flex-1 lg:flex lg:h-full lg:min-h-0 lg:flex-col">
-          <GeneratorCard
-            mode={mode}
-            onModeChange={setMode}
-            fieldsByMode={fieldsByMode}
-            onPatchFields={patchFields}
-            showSuccess={showGenSuccess}
-            onGenerate={handleGenerate}
-          />
+          <RippleEffect color="rgba(242, 107, 53, 0.12)">
+            <MouseParallax maxTilt={4} hoverScale={1.01}>
+              <GeneratorCard
+                mode={mode}
+                onModeChange={setMode}
+                fieldsByMode={fieldsByMode}
+                onPatchFields={patchFields}
+                showSuccess={showGenSuccess}
+                onGenerate={handleGenerate}
+              />
+            </MouseParallax>
+          </RippleEffect>
         </div>
 
         <div
           ref={previewSectionRef}
           className="min-w-0 w-full shrink-0 lg:flex lg:h-full lg:min-h-0 lg:max-w-md lg:flex-col"
         >
-          <QrPreviewCard items={previewItems} loading={previewLoading} />
+          <RippleEffect color="rgba(242, 107, 53, 0.12)">
+            <MouseParallax maxTilt={4} hoverScale={1.01}>
+              <QrPreviewCard items={previewItems} loading={previewLoading} />
+            </MouseParallax>
+          </RippleEffect>
         </div>
       </div>
 
-      <QrHistoryPanel
-        items={history}
-        onRestore={handleRestore}
-        onDelete={handleDeleteHistory}
-        onClear={handleClearHistory}
-      />
+      <RippleEffect color="rgba(242, 107, 53, 0.10)">
+        <QrHistoryPanel
+          items={history}
+          onRestore={handleRestore}
+          onDelete={handleDeleteHistory}
+          onClear={handleClearHistory}
+        />
+      </RippleEffect>
 
       <Modal state={errorModalState}>
         <Modal.Backdrop>

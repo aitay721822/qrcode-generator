@@ -9,9 +9,9 @@ import {
   KeyRound,
   QrCode,
 } from "lucide-react";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useT } from "@/app/i18n/client";
+import { TransitionLink, usePageTransition } from "@/components/PageTransition";
 import { Button, Dropdown, Label, type Selection } from "@/lib/heroui";
 
 const TOOLS = [
@@ -25,7 +25,7 @@ const TOOLS = [
 export function ToolNav() {
   const { t } = useT();
   const pathname = usePathname();
-  const router = useRouter();
+  const { navigate } = usePageTransition();
 
   const active = pathname.split("/").pop() ?? "qrcode";
   const currentTool = TOOLS.find((t) => t.href === active) ?? TOOLS[0];
@@ -57,7 +57,7 @@ export function ToolNav() {
                 const selected = [...keys][0];
                 const tool = TOOLS.find((t) => t.href === selected);
                 if (tool) {
-                  router.push(tool.href);
+                  navigate(tool.href);
                 }
               }}
             >
@@ -82,7 +82,7 @@ export function ToolNav() {
         {TOOLS.map(({ id, href, icon: Icon }) => {
           const isActive = active === href;
           return (
-            <Link
+            <TransitionLink
               key={id}
               href={href}
               aria-current={isActive ? "page" : undefined}
@@ -94,7 +94,7 @@ export function ToolNav() {
             >
               <Icon className="h-4 w-4 shrink-0" />
               <span className="truncate">{t(`nav.${id}`)}</span>
-            </Link>
+            </TransitionLink>
           );
         })}
       </nav>

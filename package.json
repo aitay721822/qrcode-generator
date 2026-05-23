@@ -16,6 +16,7 @@
     "@heroui/react": "^3.0.3",
     "@heroui/styles": "^3.0.3",
     "accept-language": "^3.0.20",
+    "gsap": "^3.15.0",
     "i18next": "^26.0.8",
     "i18next-browser-languagedetector": "^8.2.1",
     "i18next-http-backend": "^3.0.6",
@@ -25,9 +26,9 @@
     "next-themes": "^0.4.6",
     "qrcode": "^1.5.4",
     "react": "^19.2.5",
-    "uuidv7": "^1.2.1",
     "react-dom": "^19.2.5",
-    "react-i18next": "^17.0.6"
+    "react-i18next": "^17.0.6",
+    "uuidv7": "^1.2.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.13",
