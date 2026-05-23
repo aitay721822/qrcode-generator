@@ -1,4 +1,5 @@
-const CACHE_NAME = "qrcode-generator-v5";
+const VERSION = "v6"
+const CACHE_NAME = `qrcode-generator-${VERSION}`;
 const urlsToCache = [
   "/",
   "/en",
@@ -18,7 +19,7 @@ const urlsToCache = [
 
 // Install event - cache resources
 self.addEventListener("install", (event) => {
-  console.log("[Service Worker] Installing new version - v5");
+  console.log(`[Service Worker] Installing new version - ${VERSION}`);
   event.waitUntil(
     caches
       .open(CACHE_NAME)
@@ -37,7 +38,7 @@ self.addEventListener("install", (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener("activate", (event) => {
-  console.log("[Service Worker] Activating new version - v5");
+  console.log(`[Service Worker] Activating new version - ${VERSION}`);
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(

@@ -9,8 +9,10 @@ import {
   type ReactNode,
   useCallback,
   useContext,
+  useEffect,
   useRef,
 } from "react";
+import { useLoadingIndicator } from "./LoadingIndicator";
 
 /* ─── Context ─── */
 interface PageTransitionCtx {
@@ -24,9 +26,16 @@ const Ctx = createContext<PageTransitionCtx | null>(null);
 export function PageTransitionProvider({ children }: { children: ReactNode }) {
   const pageRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const { setLoading } = useLoadingIndicator();
+
+  /*── clear loading on mount (new page arrived) ──*/
+  useEffect(() => {
+    setLoading(false);
+  }, [setLoading]);
 
   const navigate = useCallback(
     (href: string) => {
+      setLoading(true);
       const el = pageRef.current;
       if (!el) {
         router.push(href);
@@ -42,7 +51,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
         onComplete: () => router.push(href),
       });
     },
-    [router],
+    [router, setLoading],
   );
 
   return (

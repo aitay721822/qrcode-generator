@@ -2,6 +2,7 @@
 
 import { ThemeProvider as ThemeProviderRaw } from "next-themes";
 import type { ComponentProps, ComponentType, ReactNode } from "react";
+import { LoadingOverlay, LoadingProvider } from "./LoadingIndicator";
 
 const ThemeProvider = ThemeProviderRaw as ComponentType<
   ComponentProps<typeof ThemeProviderRaw> & { children?: ReactNode }
@@ -10,7 +11,10 @@ const ThemeProvider = ThemeProviderRaw as ComponentType<
 export function Providers({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-      {children}
+      <LoadingProvider>
+        <LoadingOverlay />
+        {children}
+      </LoadingProvider>
     </ThemeProvider>
   );
 }
