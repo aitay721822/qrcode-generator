@@ -2,7 +2,7 @@
 
 import { gsap } from "gsap";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import {
   type AnchorHTMLAttributes,
   createContext,
@@ -26,6 +26,8 @@ const Ctx = createContext<PageTransitionCtx | null>(null);
 export function PageTransitionProvider({ children }: { children: ReactNode }) {
   const pageRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const pathname = usePathname();
+  const params = useParams<{ lng: string }>();
   const { setLoading } = useLoadingIndicator();
 
   /*── clear loading on mount (new page arrived) ──*/
@@ -35,6 +37,12 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
 
   const navigate = useCallback(
     (href: string) => {
+      /*── skip if already on this page ──*/
+      const targetPath = `/${params?.lng}/${href}`.replace(/\/+$/, "");
+      if (pathname === targetPath) {
+        return;
+      }
+
       setLoading(true);
       const el = pageRef.current;
       if (!el) {
@@ -51,7 +59,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
         onComplete: () => router.push(href),
       });
     },
-    [router, setLoading],
+    [router, setLoading, pathname, params?.lng],
   );
 
   return (
