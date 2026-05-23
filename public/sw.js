@@ -1,4 +1,4 @@
-const CACHE_NAME = "qrcode-generator-v4";
+const CACHE_NAME = "qrcode-generator-v5";
 const urlsToCache = [
   "/",
   "/en",
