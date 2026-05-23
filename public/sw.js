@@ -18,7 +18,7 @@ const urlsToCache = [
 
 // Install event - cache resources
 self.addEventListener("install", (event) => {
-  console.log("[Service Worker] Installing new version - v4");
+  console.log("[Service Worker] Installing new version - v5");
   event.waitUntil(
     caches
       .open(CACHE_NAME)
@@ -37,7 +37,7 @@ self.addEventListener("install", (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener("activate", (event) => {
-  console.log("[Service Worker] Activating new version - v4");
+  console.log("[Service Worker] Activating new version - v5");
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
