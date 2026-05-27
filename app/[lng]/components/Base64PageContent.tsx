@@ -10,6 +10,8 @@ import {
 import NextImage from "next/image";
 import { useRef, useState } from "react";
 import { useT } from "@/app/i18n/client";
+import { MouseParallax } from "@/components/MouseParallax";
+import { RippleEffect } from "@/components/RippleEffect";
 import {
   extractBase64,
   getFileSize,
@@ -145,43 +147,47 @@ export function Base64PageContent() {
     <>
       <div className="flex w-full flex-col gap-6">
         {/* Input Card */}
-        <Card className="rounded-xl shadow-xs p-6 card-border">
-          <Card.Content className="flex flex-col gap-4 p-0">
-            <h2 className="text-xl font-semibold">{t("base64Viewer.title")}</h2>
+        <RippleEffect color="rgba(242, 107, 53, 0.12)">
+          <MouseParallax maxTilt={4} hoverScale={1.01}>
+            <Card className="rounded-xl shadow-xs p-6 card-border">
+              <Card.Content className="flex flex-col gap-4 p-0">
+                <h2 className="text-xl font-semibold">{t("base64Viewer.title")}</h2>
 
-            <TextField fullWidth value={base64Input} onChange={setBase64Input}>
-              <TextArea
-                label={t("base64Viewer.inputLabel")}
-                placeholder={t("base64Viewer.inputPlaceholder")}
-                rows={6}
-                className="min-h-32"
-              />
-            </TextField>
+                <TextField fullWidth value={base64Input} onChange={setBase64Input}>
+                  <TextArea
+                    label={t("base64Viewer.inputLabel")}
+                    placeholder={t("base64Viewer.inputPlaceholder")}
+                    rows={6}
+                    className="min-h-32"
+                  />
+                </TextField>
 
-            <div className="flex gap-2">
-              <Button
-                variant="secondary"
-                size="sm"
-                onPress={handlePaste}
-                className="inline-flex items-center gap-2"
-              >
-                <Clipboard size={16} />
-                {t("base64Viewer.pasteFromClipboard")}
-              </Button>
-              {base64Input && (
-                <Button
-                  variant="danger-soft"
-                  size="sm"
-                  onPress={handleClear}
-                  className="inline-flex items-center gap-2"
-                >
-                  <Trash2 size={16} />
-                  {t("base64Viewer.clear")}
-                </Button>
-              )}
-            </div>
-          </Card.Content>
-        </Card>
+                <div className="flex gap-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onPress={handlePaste}
+                    className="inline-flex items-center gap-2"
+                  >
+                    <Clipboard size={16} />
+                    {t("base64Viewer.pasteFromClipboard")}
+                  </Button>
+                  {base64Input && (
+                    <Button
+                      variant="danger-soft"
+                      size="sm"
+                      onPress={handleClear}
+                      className="inline-flex items-center gap-2"
+                    >
+                      <Trash2 size={16} />
+                      {t("base64Viewer.clear")}
+                    </Button>
+                  )}
+                </div>
+              </Card.Content>
+            </Card>
+          </MouseParallax>
+        </RippleEffect>
 
         {/* Error Message */}
         {showError && (
@@ -192,72 +198,76 @@ export function Base64PageContent() {
 
         {/* Image Display */}
         {isValid && imageSrc && (
-          <Card className="rounded-xl shadow-xs p-6 card-border">
-            <Card.Content className="flex flex-col items-center gap-4 p-0">
-              <div className="relative max-h-[600px] w-full overflow-hidden rounded-lg">
-                <NextImage
-                  src={imageSrc}
-                  alt="Base64 Image"
-                  width={600}
-                  height={400}
-                  unoptimized
-                  className="h-auto max-h-[600px] w-full object-contain"
-                  style={{ maxHeight: "600px" }}
-                />
-              </div>
+          <RippleEffect color="rgba(242, 107, 53, 0.12)">
+            <MouseParallax maxTilt={4} hoverScale={1.01}>
+              <Card className="rounded-xl shadow-xs p-6 card-border">
+                <Card.Content className="flex flex-col items-center gap-4 p-0">
+                  <div className="relative max-h-[600px] w-full overflow-hidden rounded-lg">
+                    <NextImage
+                      src={imageSrc}
+                      alt="Base64 Image"
+                      width={600}
+                      height={400}
+                      unoptimized
+                      className="h-auto max-h-[600px] w-full object-contain"
+                      style={{ maxHeight: "600px" }}
+                    />
+                  </div>
 
-              {mimeType && fileSize && (
-                <div className="flex gap-4 text-sm text-default-500">
-                  <span>
-                    {t("base64Viewer.fileFormat")}:{" "}
-                    {mimeType.split("/")[1].toUpperCase()}
-                  </span>
-                  <span>
-                    {t("base64Viewer.fileSize")}: {fileSize}
-                  </span>
-                </div>
-              )}
+                  {mimeType && fileSize && (
+                    <div className="flex gap-4 text-sm text-default-500">
+                      <span>
+                        {t("base64Viewer.fileFormat")}:{" "}
+                        {mimeType.split("/")[1].toUpperCase()}
+                      </span>
+                      <span>
+                        {t("base64Viewer.fileSize")}: {fileSize}
+                      </span>
+                    </div>
+                  )}
 
-              <div className="flex flex-wrap gap-2 justify-center">
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onPress={handleCopyImage}
-                  className="inline-flex items-center gap-2"
-                >
-                  <ImageIcon size={16} />
-                  {t("base64Viewer.copiedImage")}
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onPress={handleCopyBase64}
-                  className="inline-flex items-center gap-2"
-                >
-                  <Copy size={16} />
-                  {t("base64Viewer.copiedBase64")}
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onPress={handleCopyDataUri}
-                  className="inline-flex items-center gap-2"
-                >
-                  <Copy size={16} />
-                  {t("base64Viewer.copiedDataUri")}
-                </Button>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  onPress={handleDownload}
-                  className="inline-flex items-center gap-2"
-                >
-                  <Download size={16} />
-                  {t("base64Viewer.downloadAsFile")}
-                </Button>
-              </div>
-            </Card.Content>
-          </Card>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onPress={handleCopyImage}
+                      className="inline-flex items-center gap-2"
+                    >
+                      <ImageIcon size={16} />
+                      {t("base64Viewer.copiedImage")}
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onPress={handleCopyBase64}
+                      className="inline-flex items-center gap-2"
+                    >
+                      <Copy size={16} />
+                      {t("base64Viewer.copiedBase64")}
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onPress={handleCopyDataUri}
+                      className="inline-flex items-center gap-2"
+                    >
+                      <Copy size={16} />
+                      {t("base64Viewer.copiedDataUri")}
+                    </Button>
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      onPress={handleDownload}
+                      className="inline-flex items-center gap-2"
+                    >
+                      <Download size={16} />
+                      {t("base64Viewer.downloadAsFile")}
+                    </Button>
+                  </div>
+                </Card.Content>
+              </Card>
+            </MouseParallax>
+          </RippleEffect>
         )}
       </div>
 
@@ -289,7 +299,7 @@ export function Base64PageContent() {
       {toast.visible && (
         <button
           type="button"
-          className={`fixed bottom-4 right-4 z-50 rounded-lg px-4 py-3 shadow-lg ${
+          className={`animate-slide-up fixed bottom-4 right-4 z-50 rounded-lg px-4 py-3 shadow-lg ${
             toast.type === "success"
               ? "bg-success-500 text-white"
               : "bg-danger-500 text-white"

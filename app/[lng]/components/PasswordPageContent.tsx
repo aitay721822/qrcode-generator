@@ -3,6 +3,8 @@
 import { Check, Copy, Shuffle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useT } from "@/app/i18n/client";
+import { MouseParallax } from "@/components/MouseParallax";
+import { RippleEffect } from "@/components/RippleEffect";
 import { Button, Card, Checkbox, Input, Label, TextField } from "@/lib/heroui";
 
 // Default printable ASCII special characters (no alphanumerics)
@@ -132,6 +134,8 @@ export function PasswordPageContent() {
   return (
     <div className="flex w-full flex-col gap-6">
       {/* Generator Card */}
+      <RippleEffect color="rgba(242, 107, 53, 0.12)">
+      <MouseParallax maxTilt={4} hoverScale={1.01}>
       <Card className="rounded-xl shadow-xs p-6 card-border">
         <Card.Content className="flex flex-col gap-6 p-0">
           <h2 className="text-xl font-semibold">
@@ -245,9 +249,13 @@ export function PasswordPageContent() {
           </Button>
         </Card.Content>
       </Card>
+      </MouseParallax>
+      </RippleEffect>
 
       {/* Password Display */}
       {password && (
+        <RippleEffect color="rgba(242, 107, 53, 0.12)">
+        <MouseParallax maxTilt={4} hoverScale={1.01}>
         <Card className="rounded-xl shadow-xs p-6 card-border">
           <Card.Content className="flex flex-col gap-4 p-0">
             <div className="relative">
@@ -286,6 +294,8 @@ export function PasswordPageContent() {
             </div>
           </Card.Content>
         </Card>
+        </MouseParallax>
+        </RippleEffect>
       )}
     </div>
   );

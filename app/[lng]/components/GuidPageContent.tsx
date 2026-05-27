@@ -3,6 +3,8 @@
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { useT } from "@/app/i18n/client";
+import { MouseParallax } from "@/components/MouseParallax";
+import { RippleEffect } from "@/components/RippleEffect";
 import {
   type FormatOptions,
   formatMultipleGuids,
@@ -129,6 +131,8 @@ export function GuidPageContent() {
     <>
       <div className="flex w-full flex-col gap-6">
         {/* Generator Card */}
+        <RippleEffect color="rgba(242, 107, 53, 0.12)">
+        <MouseParallax maxTilt={4} hoverScale={1.01}>
         <Card className="rounded-xl shadow-xs p-6 card-border">
           <Card.Content className="flex flex-col gap-6 p-0 overflow-visible">
             <h2 className="text-xl font-semibold">
@@ -276,9 +280,13 @@ export function GuidPageContent() {
             </div>
           </Card.Content>
         </Card>
+        </MouseParallax>
+        </RippleEffect>
 
         {/* Advanced Options (v7 only) */}
         {version === "v7" && (
+          <RippleEffect color="rgba(242, 107, 53, 0.12)">
+          <MouseParallax maxTilt={4} hoverScale={1.01}>
           <Card className="rounded-xl shadow-xs card-border">
             <Accordion.Root
               defaultExpandedKeys={[]}
@@ -341,10 +349,14 @@ export function GuidPageContent() {
               </Accordion.Item>
             </Accordion.Root>
           </Card>
+          </MouseParallax>
+          </RippleEffect>
         )}
 
         {/* Results */}
         {generatedGuids.length > 0 && (
+          <RippleEffect color="rgba(242, 107, 53, 0.12)">
+          <MouseParallax maxTilt={4} hoverScale={1.01}>
           <Card className="rounded-xl shadow-xs p-6 card-border">
             <Card.Content className="p-0">
               <div className="flex flex-col justify-between gap-4 pb-4 sm:flex-row sm:items-center border-b border-card">
@@ -394,6 +406,8 @@ export function GuidPageContent() {
               </div>
             </Card.Content>
           </Card>
+          </MouseParallax>
+          </RippleEffect>
         )}
       </div>
 
